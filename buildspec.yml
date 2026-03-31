@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  variables:
+    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y apache2
+  pre_build:
+    commands:
+      - docker login -u User -p $praveen123
+    finally:
+  build:
+    commands:
+      - echo Build started on `date`
+      - zip hello.zip ./index.html
+    finally:
+  post_build:
+    commands:
+      - index.html
+      - appspec.yml
+      - script/install_dependencies
+      - start_server
+      - Dockerfile
+      - app.py
+      - config.py
