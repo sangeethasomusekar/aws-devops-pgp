@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo sevrvice apche2 start
